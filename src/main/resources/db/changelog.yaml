@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      - file: classpath:db/changelog/create_app_user.sql
+  - include:
+      - file: classpath:db/changelog/create_cards_table.sql
+  - include:
+      - file: classpath:db/changelog/populate_users.sql
