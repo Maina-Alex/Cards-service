@@ -1,0 +1,686 @@
+{
+	"info": {
+		"_postman_id": "5948617a-d634-4ebd-b4ba-6ff00e3ef5a1",
+		"name": "CARDS_SERVICE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10850939"
+	},
+	"item": [
+		{
+			"name": "LOGIN",
+			"item": [
+				{
+					"name": "LOGIN USER",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"john@example.com\",\r\n    \"password\": \"root123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "LOGIN USER SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"john@example.com\",\r\n    \"password\": \"root123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Apr 2024 15:23:04 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access_token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huQGV4YW1wbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaXNzIjoiQ2FyZHNBcHAiLCJpYXQiOjE3MTI1ODk3ODQsImF1ZCI6WyJDYXJkc0F1ZGllbmNlIl0sImV4cCI6MTkyODU4OTc4NH0.qTc4M3m8Fm3gaNYNWmNHviNlejLucImh_JHuA9UHnXc\",\n    \"token_type\": \"Bearer\",\n    \"expires_in\": 3600\n}"
+						},
+						{
+							"name": "LOGIN FAILED",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"john@example.com\",\r\n    \"password\": \"root12\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Apr 2024 15:27:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid credentials\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "CARDS",
+			"item": [
+				{
+					"name": "CREATE CARD",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huQGV4YW1wbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaXNzIjoiQ2FyZHNBcHAiLCJpYXQiOjE3MTI1ODk3ODQsImF1ZCI6WyJDYXJkc0F1ZGllbmNlIl0sImV4cCI6MTkyODU4OTc4NH0.qTc4M3m8Fm3gaNYNWmNHviNlejLucImh_JHuA9UHnXc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Card1\",\r\n    \"description\": \"This is a test card\",\r\n    \"color\": \"#FFFFFF\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cards/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cards",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "CREATE CARD SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Card1\",\r\n    \"description\": \"This is a test card\",\r\n    \"color\": \"#FFFFFF\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/cards/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"cards",
+										"create"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Apr 2024 15:30:59 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"Card1\",\n    \"description\": \"This is a test card\",\n    \"color\": \"#FFFFFF\",\n    \"status\": \"TO_DO\",\n    \"createdDate\": \"2024-04-08T15:30:59.296+00:00\",\n    \"appUser\": {\n        \"id\": 1,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"password\": \"$2a$12$F1Wf.Y1.a.iCjijVWguCded0w6BTQQmYRFeE4YdvRwxyE0QR3FAde\",\n        \"email\": \"john@example.com\",\n        \"phone\": \"1234567890\",\n        \"address\": \"123 Street\",\n        \"accountActive\": true,\n        \"role\": \"ADMIN\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "SEARCH",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huQGV4YW1wbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaXNzIjoiQ2FyZHNBcHAiLCJpYXQiOjE3MTI1ODk3ODQsImF1ZCI6WyJDYXJkc0F1ZGllbmNlIl0sImV4cCI6MTkyODU4OTc4NH0.qTc4M3m8Fm3gaNYNWmNHviNlejLucImh_JHuA9UHnXc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cards/search?color=%23FFFFFF&status=TO_DO&name=Card1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cards",
+								"search"
+							],
+							"query": [
+								{
+									"key": "color",
+									"value": "#FFFFFF"
+								},
+								{
+									"key": "status",
+									"value": "TO_DO"
+								},
+								{
+									"key": "name",
+									"value": "Card1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "CARD SEARCH SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/cards/search?color=%23FFFFFF&status=TO_DO&name=Card1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"cards",
+										"search"
+									],
+									"query": [
+										{
+											"key": "color",
+											"value": "#FFFFFF"
+										},
+										{
+											"key": "status",
+											"value": "TO_DO"
+										},
+										{
+											"key": "name",
+											"value": "Card1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Apr 2024 15:34:54 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"cards\": [\n        {\n            \"id\": 1,\n            \"name\": \"Card1\",\n            \"description\": \"This is a test card\",\n            \"color\": \"#FFFFFF\",\n            \"status\": \"TO_DO\",\n            \"createdDate\": \"2024-04-08T15:30:59.296+00:00\",\n            \"appUser\": {\n                \"id\": 1,\n                \"firstName\": \"John\",\n                \"lastName\": \"Doe\",\n                \"password\": \"$2a$12$F1Wf.Y1.a.iCjijVWguCded0w6BTQQmYRFeE4YdvRwxyE0QR3FAde\",\n                \"email\": \"john@example.com\",\n                \"phone\": \"1234567890\",\n                \"address\": \"123 Street\",\n                \"accountActive\": true,\n                \"role\": \"ADMIN\"\n            }\n        }\n    ],\n    \"pages\": 1,\n    \"totalRecords\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huQGV4YW1wbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaXNzIjoiQ2FyZHNBcHAiLCJpYXQiOjE3MTI1ODk3ODQsImF1ZCI6WyJDYXJkc0F1ZGllbmNlIl0sImV4cCI6MTkyODU4OTc4NH0.qTc4M3m8Fm3gaNYNWmNHviNlejLucImh_JHuA9UHnXc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cardId\": 1,\r\n    \"color\": \"#000000\",\r\n    \"description\": \"Updated description\",\r\n    \"cardStatus\": \"IN_PROGRESS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cards/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cards",
+								"update"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "UPDATE CARD SUCCESS",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"cardId\": 1,\r\n    \"color\": \"#000000\",\r\n    \"description\": \"Updated description\",\r\n    \"cardStatus\": \"IN_PROGRESS\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/cards/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"cards",
+										"update"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Apr 2024 15:42:40 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"Card1\",\n    \"description\": \"Updated description\",\n    \"color\": \"#000000\",\n    \"status\": \"IN_PROGRESS\",\n    \"createdDate\": \"2024-04-08T15:30:59.296+00:00\",\n    \"appUser\": {\n        \"id\": 1,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"password\": \"$2a$12$F1Wf.Y1.a.iCjijVWguCded0w6BTQQmYRFeE4YdvRwxyE0QR3FAde\",\n        \"email\": \"john@example.com\",\n        \"phone\": \"1234567890\",\n        \"address\": \"123 Street\",\n        \"accountActive\": true,\n        \"role\": \"ADMIN\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE CARD",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huQGV4YW1wbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaXNzIjoiQ2FyZHNBcHAiLCJpYXQiOjE3MTI1ODk3ODQsImF1ZCI6WyJDYXJkc0F1ZGllbmNlIl0sImV4cCI6MTkyODU4OTc4NH0.qTc4M3m8Fm3gaNYNWmNHviNlejLucImh_JHuA9UHnXc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cards/delete/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cards",
+								"delete",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE CARD",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/cards/delete/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"cards",
+										"delete",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Apr 2024 15:44:33 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	]
+}
